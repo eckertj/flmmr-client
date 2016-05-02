@@ -1,4 +1,4 @@
-System.register(['angular2/core', './media.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './media.component', './player.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './media.component'], function(exports_1, cont
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, media_component_1;
+    var core_1, media_component_1, player_component_1;
     var AppComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './media.component'], function(exports_1, cont
             },
             function (media_component_1_1) {
                 media_component_1 = media_component_1_1;
+            },
+            function (player_component_1_1) {
+                player_component_1 = player_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -27,9 +30,8 @@ System.register(['angular2/core', './media.component'], function(exports_1, cont
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'flmmr',
-                        template: '<media></media>',
-                        templateUrl: 'app/components/app.component.html',
-                        directives: [media_component_1.MediaComponent]
+                        template: '<media></media><single-media-player></single-media-player>',
+                        directives: [media_component_1.MediaComponent, player_component_1.SingleMediaPlayer]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
