@@ -1,7 +1,7 @@
-<h2>{{ title }}</h2>
+<h2>{{ mediaURL }}</h2>
 <input #search (change)="getMedia(search.value)" />
 <ul>
   <li *ngFor="#item of media">
-    {{ item.station }} (<a href="{{ item.media_url }}" target="_blank" >Watch {{ item.title }}</a>)
+    {{ item.station }} (<a href="#" (click)="changeMedia(item.media_url)" >Watch {{ item.title }}</a>)
   </li>
 </ul> 

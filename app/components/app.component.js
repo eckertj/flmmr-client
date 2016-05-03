@@ -26,11 +26,12 @@ System.register(['angular2/core', './media.component', './player.component'], fu
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.mediaURL = "http://media.ndr.de/progressive/2014/1201/TV-20141201-1656-0542.hq.mp4";
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'flmmr',
-                        template: '<media></media><single-media-player></single-media-player>',
+                        templateUrl: 'app/components/app.component.html',
                         directives: [media_component_1.MediaComponent, player_component_1.SingleMediaPlayer]
                     }), 
                     __metadata('design:paramtypes', [])

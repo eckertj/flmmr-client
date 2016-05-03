@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component, Input, Output, EventEmitter} from 'angular2/core'
 import {Observable} from 'rxjs/Rx';
 import {Http, Response} from 'angular2/http';
 import 'rxjs/add/operator/map';
@@ -16,12 +16,9 @@ import {FlmmrAPIService} from '../services/media.service'
 export class MediaComponent {
   title = "Flmmr"
   media;
+  @Output() mediaURL = new EventEmitter();
 
   constructor(public api: FlmmrAPIService) { }
-
-  ngOnInit() {
-    //this.getMedia("tatort");
-  }
 
   getMedia(query) {
     console.log("Fetching new data with query: ", query);
@@ -31,4 +28,9 @@ export class MediaComponent {
           () => console.log('done')
     );  
   }
+
+  changeMedia(media_url) {
+    this.mediaURL.emit(media_url);
+  }
+
 }
