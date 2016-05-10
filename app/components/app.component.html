@@ -1,3 +1,3 @@
 <h1>{{ mediaURL }}</h1>
-<media (mediaURL)="mediaURL = $event" style="position: absolute; width: 50%; left: 0"></media>
-<single-media-player [(mediaURL)]="mediaURL" style="position: absolute; width: 50%; right: 0"></single-media-player>
+<media (mediaURLChanged)="mediaURLChanged($event)" style="position: absolute; width: 50%; left: 0"></media>
+<single-media-player style="position: absolute; width: 50%; right: 0"></single-media-player>

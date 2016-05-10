@@ -1,4 +1,4 @@
-import {Component, Input, EventEmitter} from 'angular2/core';
+import {Component, Input, EventEmitter, ViewChild} from 'angular2/core';
 import {MediaComponent} from './media.component'
 import {SingleMediaPlayer} from './player.component'
 
@@ -8,8 +8,15 @@ import {SingleMediaPlayer} from './player.component'
   directives: [MediaComponent, SingleMediaPlayer]
 })
 export class AppComponent {
-  mediaURL = "http://media.ndr.de/progressive/2014/1201/TV-20141201-1656-0542.hq.mp4";
 
+  mediaURL = "http://nrodl.zdf.de/none/tivi/15/03/150310_folge9_jungswgurlaub_jum_2256k_p14v11.mp4";
+
+  @ViewChild(SingleMediaPlayer) singleMediaPlayer: SingleMediaPlayer
   constructor() { }
+
+  mediaURLChanged(media_url) {
+    this.mediaURL = media_url;
+    this.singleMediaPlayer.changeMedia(media_url);
+  }
 
 }

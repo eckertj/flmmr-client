@@ -16,7 +16,7 @@ import {FlmmrAPIService} from '../services/media.service'
 export class MediaComponent {
   title = "Flmmr"
   media;
-  @Output() mediaURL = new EventEmitter();
+  @Output() mediaURLChanged = new EventEmitter();
 
   constructor(public api: FlmmrAPIService) { }
 
@@ -30,7 +30,8 @@ export class MediaComponent {
   }
 
   changeMedia(media_url) {
-    this.mediaURL.emit(media_url);
+    console.log("changeMedia called!");
+    this.mediaURLChanged.emit(media_url);
   }
 
 }

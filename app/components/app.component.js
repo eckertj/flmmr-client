@@ -26,8 +26,16 @@ System.register(['angular2/core', './media.component', './player.component'], fu
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.mediaURL = "http://media.ndr.de/progressive/2014/1201/TV-20141201-1656-0542.hq.mp4";
+                    this.mediaURL = "http://nrodl.zdf.de/none/tivi/15/03/150310_folge9_jungswgurlaub_jum_2256k_p14v11.mp4";
                 }
+                AppComponent.prototype.mediaURLChanged = function (media_url) {
+                    this.mediaURL = media_url;
+                    this.singleMediaPlayer.changeMedia(media_url);
+                };
+                __decorate([
+                    core_1.ViewChild(player_component_1.SingleMediaPlayer), 
+                    __metadata('design:type', player_component_1.SingleMediaPlayer)
+                ], AppComponent.prototype, "singleMediaPlayer", void 0);
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'flmmr',

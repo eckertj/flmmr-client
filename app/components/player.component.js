@@ -32,9 +32,29 @@ System.register(['angular2/core', 'angular2/common', 'videogular2/core', 'videog
         execute: function() {
             SingleMediaPlayer = (function () {
                 function SingleMediaPlayer() {
+                    this.controls = false;
+                    this.autoplay = false;
+                    this.loop = false;
+                    this.preload = 'auto';
+                    this.fsAPI = core_2.VgFullscreenAPI;
+                    this.sources = [
+                        {
+                            src: "http://media.ndr.de/progressive/2014/1201/TV-20141201-1656-0542.hq.mp4",
+                            type: "video/mp4"
+                        }
+                    ];
                 }
-                SingleMediaPlayer.prototype.updateSource = function () {
-                    console.log("some function triggered: ", this.currentMediaUrl);
+                SingleMediaPlayer.prototype.onPlayerReady = function (api) {
+                    this.api = api;
+                };
+                SingleMediaPlayer.prototype.changeMedia = function (media_url) {
+                    console.log("onClickUpdateSource called!");
+                    this.sources = [
+                        {
+                            src: media_url,
+                            type: "video/mp4"
+                        }
+                    ];
                 };
                 __decorate([
                     core_1.Input(), 
@@ -55,7 +75,9 @@ System.register(['angular2/core', 'angular2/common', 'videogular2/core', 'videog
                             controls_1.VgScrubBarBufferingTime,
                             controls_1.VgMute,
                             controls_1.VgFullscreen,
-                            common_1.NgFor
+                            common_1.NgFor,
+                            common_1.NgIf,
+                            common_1.NgModel
                         ]
                     }), 
                     __metadata('design:paramtypes', [])

@@ -26,7 +26,7 @@ System.register(['angular2/core', 'rxjs/add/operator/map', '../services/media.se
                 function MediaComponent(api) {
                     this.api = api;
                     this.title = "Flmmr";
-                    this.mediaURL = new core_1.EventEmitter();
+                    this.mediaURLChanged = new core_1.EventEmitter();
                 }
                 MediaComponent.prototype.getMedia = function (query) {
                     var _this = this;
@@ -34,12 +34,13 @@ System.register(['angular2/core', 'rxjs/add/operator/map', '../services/media.se
                     this.api.getMedia(query).subscribe(function (data) { _this.media = data.media; }, function (err) { return console.error(err); }, function () { return console.log('done'); });
                 };
                 MediaComponent.prototype.changeMedia = function (media_url) {
-                    this.mediaURL.emit(media_url);
+                    console.log("changeMedia called!");
+                    this.mediaURLChanged.emit(media_url);
                 };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', Object)
-                ], MediaComponent.prototype, "mediaURL", void 0);
+                ], MediaComponent.prototype, "mediaURLChanged", void 0);
                 MediaComponent = __decorate([
                     core_1.Component({
                         selector: 'media',
