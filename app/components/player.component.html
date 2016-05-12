@@ -1,7 +1,7 @@
-<vg-player>
-    <vg-overlay-play></vg-overlay-play>
+<vg-player (onPlayerReady)="onPlayerReady($event)" (click)="clickOnPlayer($event)">
+    <!-- <vg-overlay-play (click)="doSth($event)"></vg-overlay-play> -->
 
-    <vg-controls *ngIf="false" [autohide]="true" [autohideTime]="1.5">
+    <vg-controls *ngIf="false" [autohide]="true" [autohideTime]="3">
         <vg-play-pause></vg-play-pause>
         <vg-playback-button></vg-playback-button>
 
@@ -20,12 +20,7 @@
         <vg-fullscreen></vg-fullscreen>
     </vg-controls>
 
-    <video #media id="singleVideo" preload="auto" [controls]="true">
+    <video #media id="singleVideo"  preload="auto" [controls]="true" >
         <source *ngFor="#video of sources" [src]="video.src" [type]="video.type">
     </video>
 </vg-player>
-
-<!-- <div>
-    <label for="nativeControls">Native Controls</label>
-    <input #nativeControls id="nativeControls" type="checkbox" (change)="controls = nativeControls.checked">
-</div> -->

@@ -1,0 +1,66 @@
+/**
+ *  Custom CSS
+ */
+
+
+/* general stuff */
+.vertical-center {
+  min-height: 100%;
+  display: flex;
+//  align-items: center;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.disableScroll {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* search bar  */
+.search-field {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* player overlay */
+
+.overlay
+ {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: rgba(0, 0, 0, 0.85);
+     z-index: 9999;
+     color: white;
+     display: inline-block;
+ }
+
+@media (orientation:landscape) {
+  .player-container {
+    position: absolute;
+    width: 96vh;
+    height: 72vh;
+    left: 50vw;
+    top: 50vh;
+    transform: translate3d(-50%, -50%, 0px);
+  }
+}
+
+@media (orientation:portrait) {
+  .player-container {
+      position: absolute;
+      width: 80vw;
+      height: 60vw;
+      left: 50vw;
+      top: 50vh;
+      transform: translate3d(-50%, -50%, 0px);
+  }
+}
+
+

@@ -1,7 +1,30 @@
-<h2>{{ mediaURL }}</h2>
-<input #search (change)="getMedia(search.value)" />
-<ul>
-  <li *ngFor="#item of media">
-    {{ item.station }} (<a href="#" (click)="changeMedia(item.media_url)" >Watch {{ item.title }}</a>)
-  </li>
-</ul> 
+
+<div class="container">
+  <div class="row search-field">
+      <div class="col-lg-8 col-lg-offset-2">
+          <div class="input-group">
+              <input type="text" class="form-control input-lg" #search (change)="getMedia(search.value)"/> 
+               <span class="input-group-btn">
+                  <button class="btn btn-default btn-lg" type="button">
+                    Suchen
+                  </button>
+              </span>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <ul class="list-group">
+          <li *ngFor="#item of media" class="list-group-item">
+            <a href="#" (click)="changeMedia(item.media_url)" >
+              Watch {{ item.title }}
+            </a>
+          </li>
+        </ul> 
+      </div>
+  </div>
+</div>
+
+
+
+

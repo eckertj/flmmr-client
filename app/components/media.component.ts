@@ -1,4 +1,5 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core'
+import {NgClass} from 'angular2/common';
 import {Observable} from 'rxjs/Rx';
 import {Http, Response} from 'angular2/http';
 import 'rxjs/add/operator/map';
@@ -10,7 +11,7 @@ import {FlmmrAPIService} from '../services/media.service'
   templateUrl: 'app/components/media.component.html',
   styleUrls: ['app/styles/style.css'],
   providers: [FlmmrAPIService],
-  directives: []
+  directives: [NgClass]
 })
 
 export class MediaComponent {

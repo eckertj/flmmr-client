@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'rxjs/add/operator/map', '../services/media.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/common', 'rxjs/add/operator/map', '../services/media.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', 'rxjs/add/operator/map', '../services/media.se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, media_service_1;
+    var core_1, common_1, media_service_1;
     var MediaComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             },
             function (_1) {},
             function (media_service_1_1) {
@@ -47,7 +50,7 @@ System.register(['angular2/core', 'rxjs/add/operator/map', '../services/media.se
                         templateUrl: 'app/components/media.component.html',
                         styleUrls: ['app/styles/style.css'],
                         providers: [media_service_1.FlmmrAPIService],
-                        directives: []
+                        directives: [common_1.NgClass]
                     }), 
                     __metadata('design:paramtypes', [media_service_1.FlmmrAPIService])
                 ], MediaComponent);

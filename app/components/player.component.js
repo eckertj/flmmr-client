@@ -39,7 +39,7 @@ System.register(['angular2/core', 'angular2/common', 'videogular2/core', 'videog
                     this.fsAPI = core_2.VgFullscreenAPI;
                     this.sources = [
                         {
-                            src: "http://media.ndr.de/progressive/2014/1201/TV-20141201-1656-0542.hq.mp4",
+                            src: "",
                             type: "video/mp4"
                         }
                     ];
@@ -47,8 +47,16 @@ System.register(['angular2/core', 'angular2/common', 'videogular2/core', 'videog
                 SingleMediaPlayer.prototype.onPlayerReady = function (api) {
                     this.api = api;
                 };
+                SingleMediaPlayer.prototype.clickOnPlayer = function (event) {
+                    if (this.api.state == "play") {
+                        this.api.pause();
+                    }
+                    else {
+                        this.api.play();
+                    }
+                    event.stopPropagation();
+                };
                 SingleMediaPlayer.prototype.changeMedia = function (media_url) {
-                    console.log("onClickUpdateSource called!");
                     this.sources = [
                         {
                             src: media_url,

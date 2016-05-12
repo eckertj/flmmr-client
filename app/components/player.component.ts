@@ -34,23 +34,30 @@ export class SingleMediaPlayer {
 
     @Input() mediaURL: string; 
 
-        constructor() {
+    constructor() {
         this.fsAPI = VgFullscreenAPI;
-
         this.sources = [
             {
-                src: "http://media.ndr.de/progressive/2014/1201/TV-20141201-1656-0542.hq.mp4",
+                src: "",
                 type: "video/mp4"
             }
         ];
     }
 
-    onPlayerReady(api:VgAPI) {
+    onPlayerReady(api: VgAPI) {
         this.api = api;
     }
 
+    clickOnPlayer(event) {
+        if (this.api.state == "play") {
+            this.api.pause();
+        } else {
+            this.api.play();
+        }
+        event.stopPropagation();
+    }
+
     changeMedia(media_url) {
-        console.log("onClickUpdateSource called!");
         this.sources = [
             {
                 src: media_url,

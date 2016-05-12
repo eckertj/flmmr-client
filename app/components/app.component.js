@@ -27,10 +27,26 @@ System.register(['angular2/core', './media.component', './player.component'], fu
             AppComponent = (function () {
                 function AppComponent() {
                     this.mediaURL = "http://nrodl.zdf.de/none/tivi/15/03/150310_folge9_jungswgurlaub_jum_2256k_p14v11.mp4";
+                    this.showVideo = false;
+                    this.showVideo = false;
                 }
                 AppComponent.prototype.mediaURLChanged = function (media_url) {
                     this.mediaURL = media_url;
                     this.singleMediaPlayer.changeMedia(media_url);
+                    this.showVideoOverlay();
+                    $("body").addClass("disableScroll");
+                };
+                AppComponent.prototype.showVideoOverlay = function () {
+                    this.showVideo = true;
+                };
+                AppComponent.prototype.hideVideoOverlay = function () {
+                    document.getElementsByTagName("body")[0].className = "";
+                    this.showVideo = false;
+                };
+                AppComponent.prototype.closeVideo = function () {
+                    this.singleMediaPlayer.api.pause();
+                    this.hideVideoOverlay();
+                    $("body").removeClass("disableScroll");
                 };
                 __decorate([
                     core_1.ViewChild(player_component_1.SingleMediaPlayer), 
@@ -40,6 +56,7 @@ System.register(['angular2/core', './media.component', './player.component'], fu
                     core_1.Component({
                         selector: 'flmmr',
                         templateUrl: 'app/components/app.component.html',
+                        styleUrls: ['app/styles/style.css'],
                         directives: [media_component_1.MediaComponent, player_component_1.SingleMediaPlayer]
                     }), 
                     __metadata('design:paramtypes', [])
