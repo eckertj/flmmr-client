@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist/app",
     "target": "es5",
     "module": "system",
     "moduleResolution": "node",
@@ -13,5 +14,23 @@
     "node_modules",
     "typings/main",
     "typings/main.d.ts"
+  ],
+  "filesGlob": [
+    "app/**/*.ts",
+    "typings/**/*.d.ts",
+    "node_modules/videogular2/core.d.ts",
+    "node_modules/videogular2/controls.d.ts",
+    "node_modules/videogular2/overlay-play.d.ts",
+    "node_modules/videogular2/dist/vg-360/*.ts"
+
+  ],
+  "files": [
+    "app/boot.ts",
+    "app/components/app.component.ts",
+    "app/components/media.component.ts",
+    "app/components/player.component.ts",
+    "app/services/media.service.ts"
+
   ]
+
 }

@@ -5,21 +5,22 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+    <script src="lib/js/jquery.min.js"></script>
+
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="lib/js/es6-shim.min.js"></script>
+    <script src="lib/js/system-polyfills.js"></script>
 
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script>
-    <script src="node_modules/angular2/bundles/http.dev.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/js/angular2-polyfills.js"></script>
+    <script src="lib/js/system.src.js"></script>
+    <script src="lib/js/Rx.js"></script>
+    <script src="lib/js/angular2.dev.js"></script>
+    <script src="lib/js/router.dev.js"></script>
+    <script src="lib/js/http.dev.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app/styles/style.css">
 
     <!-- 2. Configure SystemJS -->
@@ -35,8 +36,11 @@
           }
         },
         map: {
-          'videogular2': 'node_modules/videogular2'
+          'videogular2': 'lib/js/videogular2',
+          'System': 'lib/js'
+
         }
+
       });
       System.import('app/boot')
             .then(null, console.error.bind(console));
