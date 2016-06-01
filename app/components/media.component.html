@@ -1,23 +1,54 @@
 
 <div class="container">
-  <div class="row search-field">
+  <div class="row search-field start" (click)="focusIn()">
       <div class="col-lg-8 col-lg-offset-2">
-          <div class="input-group">
-              <input type="text" class="form-control input-lg" #search (change)="getMedia(search.value)"/> 
+        <input type="text" class="search-input" placeholder="Mediatheken durchsuchen..." #search (change)="getMedia(search.value)"/> 
+<!--           <div class="input-group">
+              <input type="text" class="search-input" placeholder="Mediatheken durchsuchen..." #search (change)="getMedia(search.value)"/> 
                <span class="input-group-btn">
-                  <button class="btn btn-default btn-lg" type="button">
+                  <button class="search-btn btn btn-default btn-lg" type="button">
                     Suchen
                   </button>
               </span>
-          </div>
+          </div> -->
       </div>
   </div>
   <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <ul class="list-group">
-          <li *ngFor="#item of media" class="list-group-item">
+        <ul class="list">
+          <li *ngFor="#item of media" class="list-item {{item.station}}">
             <a href="#" (click)="changeMedia(item.media_url)" >
-              Watch {{ item.title }}
+              <div class="row">
+                <div class="col-lg-10">
+                  <div class="row">
+                    <div class="col-lg-12 title">
+                        {{item.title}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12 description">
+                      {{item.description}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="row date">
+                    <div class="col-lg-12">
+                        {{dateToString(item.date)}}
+                    </div>
+                  </div>
+                  <div class="row duration">
+                    <div class="col-lg-12">
+                        {{durationToString(item.duration)}}
+                    </div>
+                  </div>
+                  <div class="row download">
+                    <div class="col-lg-12">
+                      <a href="{{item.media_url}}" download>Download</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </a>
           </li>
         </ul> 

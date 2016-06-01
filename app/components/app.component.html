@@ -1,7 +1,7 @@
 <media (mediaURLChanged)="mediaURLChanged($event)" >
 </media>
 
-<div class="overlay" [ngClass]="{hidden: !showVideo}" (click)="closeVideo()">
+<div class="overlay" [ngClass]="{fadeOut: !showVideo}" (click)="closeVideo()">
   <div class="player-container" >
     <single-media-player ></single-media-player>
   </div>
