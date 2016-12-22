@@ -3,6 +3,7 @@
 import {Component, Input, EventEmitter, ViewChild} from 'angular2/core';
 import {MediaComponent} from './media.component'
 import {SingleMediaPlayer} from './player.component'
+import {TruncatePipe} from './truncate.component';
 // import $ = require('jquery')
 declare var $: JQueryStatic;
 

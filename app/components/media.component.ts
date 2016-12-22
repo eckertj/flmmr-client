@@ -3,6 +3,7 @@ import {NgClass} from 'angular2/common';
 import {Observable} from 'rxjs/Rx';
 import {Http, Response} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import {TruncatePipe} from './truncate.component';
 
 import {FlmmrAPIService} from '../services/media.service'
 
@@ -10,6 +11,7 @@ import {FlmmrAPIService} from '../services/media.service'
   selector : 'media',
   templateUrl: 'app/components/media.component.html',
   styleUrls: ['app/styles/style.css'],
+  pipes: [TruncatePipe],
   providers: [FlmmrAPIService],
   directives: [NgClass]
 })
@@ -17,16 +19,18 @@ import {FlmmrAPIService} from '../services/media.service'
 export class MediaComponent {
   title = "Flmmr"
   media;
+  fetchingInProcess = false;
   @Output() mediaURLChanged = new EventEmitter();
 
   constructor(public api: FlmmrAPIService) { }
 
   getMedia(query) {
     console.log("Fetching new data with query: ", query);
+    this.fetchingInProcess = true;
     this.api.getMedia(query).subscribe(
         data => { this.media = data.media},
          err => console.error(err),
-          () => console.log('done')
+          () => {this.fetchingInProcess = false; console.log('done');}
     );  
   }
 

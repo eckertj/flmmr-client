@@ -29,6 +29,7 @@
     "app/components/app.component.ts",
     "app/components/media.component.ts",
     "app/components/player.component.ts",
+	"app/components/truncate.component.ts",
     "app/services/media.service.ts"
 
   ]

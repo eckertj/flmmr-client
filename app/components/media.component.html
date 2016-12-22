@@ -13,7 +13,18 @@
           </div> -->
       </div>
   </div>
-  <div class="row">
+  <div *ngIf="(fetchingInProcess)" class="row">
+     <div class="loader" ></div>
+     <div class="centered-text" >
+        Suche nach '{{search.value}}' ...
+     </div>
+  </div>
+  <div *ngIf="(media?.length == 0) && !fetchingInProcess" class="row">
+    <div class="centered-text">
+      Leider nichts gefunden :(
+    </div>
+  </div>
+  <div *ngIf="(!fetchingInProcess)" class="row" >
       <div class="col-lg-8 col-lg-offset-2">
         <ul class="list">
           <li *ngFor="#item of media" class="list-item {{item.station}}">
@@ -22,12 +33,12 @@
                 <div class="col-lg-10">
                   <div class="row">
                     <div class="col-lg-12 title">
-                        {{item.title}}
+                        {{item.title | truncate : 50}}
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12 description">
-                      {{item.description}}
+                      {{item.description | truncate : 300}}
                     </div>
                   </div>
                 </div>
