@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class FlmmrAPIService {
 
-  _baseUrl: string = 'https://flmmr-api.herokuapp.com/api';
+  //_baseUrl: string = 'https://flmmr-api.herokuapp.com/api';
+  _baseUrl: string = 'http://localhost:3000/api';
 
   constructor(private http: Http)  {}
 

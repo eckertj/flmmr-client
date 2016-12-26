@@ -59,7 +59,6 @@ gulp.task('copy:css', ['clean'], function() {
     .pipe(gulp.dest('dist/lib/css'))
 });
 
-
 // linting
 gulp.task('tslint', function() {
   return gulp.src('app/**/*.ts')

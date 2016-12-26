@@ -27,18 +27,23 @@
   <div *ngIf="(!fetchingInProcess)" class="row" >
       <div class="col-lg-8 col-lg-offset-2">
         <ul class="list">
-          <li *ngFor="#item of media" class="list-item {{item.station}}">
+          <li *ngFor="#item of media" class="list-item {{item.station}}" >
             <a href="#" (click)="changeMedia(item.media_url)" >
               <div class="row">
-                <div class="col-lg-10">
+                <div class="col-lg-2">
+                  <div class="logo-container" >
+                    <img src="app/images/{{item.station}}.png" class="logo" >
+                  </div>
+                </div>
+                <div class="col-lg-8" style="padding-left: 0px;">
                   <div class="row">
                     <div class="col-lg-12 title">
-                        {{item.title | truncate : 50}}
+                        {{item.title | truncate : 35}}
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12 description">
-                      {{item.description | truncate : 300}}
+                      {{item.description | truncate : 200}}
                     </div>
                   </div>
                 </div>
@@ -55,7 +60,7 @@
                   </div>
                   <div class="row download">
                     <div class="col-lg-12">
-                      <a href="{{item.media_url}}" download>Download</a>
+                      <a href="{{item.media_url}}" (click)="catchClick($event)" download>Download</a>
                     </div>
                   </div>
                 </div>

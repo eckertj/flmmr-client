@@ -29,7 +29,7 @@ export class MediaComponent {
     this.fetchingInProcess = true;
     this.api.getMedia(query).subscribe(
         data => { this.media = data.media},
-         err => console.error(err),
+         err => {this.fetchingInProcess = false; console.error(err)},
           () => {this.fetchingInProcess = false; console.log('done');}
     );  
   }
@@ -42,6 +42,10 @@ export class MediaComponent {
   focusIn() {
     console.log("focus in");
     $("div.search-field").removeClass("start");
+  }
+
+  catchClick(event) {
+    event.stopPropagation();
   }
 
   focusOut() {
