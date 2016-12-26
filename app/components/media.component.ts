@@ -28,9 +28,16 @@ export class MediaComponent {
     console.log("Fetching new data with query: ", query);
     this.fetchingInProcess = true;
     this.api.getMedia(query).subscribe(
-        data => { this.media = data.media},
-         err => {this.fetchingInProcess = false; console.error(err)},
-          () => {this.fetchingInProcess = false; console.log('done');}
+        data => { this.media = data.media },
+        err => {
+          this.fetchingInProcess = false;
+          console.error(err);
+          this.media = [];
+        },
+        () => {
+          this.fetchingInProcess = false; 
+          console.log('done');
+        }
     );  
   }
 
@@ -55,7 +62,7 @@ export class MediaComponent {
 
   dateToString(datestr) {
     var date = new Date(datestr);
-    return date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
+    return (date.getDate()) + "." + (date.getMonth()+1) + "." + date.getFullYear();
   }
 
   durationToString(durstr) {

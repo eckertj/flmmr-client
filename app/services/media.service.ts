@@ -12,7 +12,7 @@ export class FlmmrAPIService {
   constructor(private http: Http)  {}
 
   getMedia(query){
-    return this.http.get(this._baseUrl + '?q=' + query)
+    return this.http.get(this._baseUrl + '?q=' + query + '&min_duration=150')
       .map((res: Response) => res.json());
       }
 

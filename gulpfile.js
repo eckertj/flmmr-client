@@ -36,6 +36,12 @@ gulp.task('copy:jslibs', ['clean'], function() {
     .pipe(gulp.dest('dist/lib/js'))
 });
 
+gulp.task('copy:fonts', ['clean'], function() {
+  return gulp.src([
+      'node_modules/bootstrap/fonts/*'
+    ])
+    .pipe(gulp.dest('dist/lib/fonts'))
+});
 
 gulp.task('copy:videogular2', ['clean'], function() {
   return gulp.src([
@@ -96,6 +102,6 @@ gulp.task('serve', ['build'], function() {
   gulp.watch(['app/**/*', 'index.html', 'styles.css'], ['buildAndReload']);
 });
 
-gulp.task('build', ['tslint', 'compile', 'copy:jslibs', 'copy:videogular2', 'copy:videogular2-dist', 'copy:css', 'copy:assets']);
+gulp.task('build', ['tslint', 'compile', 'copy:jslibs', 'copy:fonts', 'copy:videogular2', 'copy:videogular2-dist', 'copy:css', 'copy:assets']);
 gulp.task('buildAndReload', ['build'], reload);
 gulp.task('default', ['build']);
