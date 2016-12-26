@@ -1,0 +1,58 @@
+<html>
+
+  <head>
+    <title>Flmmr Client</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="lib/js/jquery.min.js"></script>
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="lib/js/es6-shim.min.js"></script>
+    <script src="lib/js/system-polyfills.js"></script>
+
+    <script src="lib/js/angular2-polyfills.js"></script>
+    <script src="lib/js/system.src.js"></script>
+    <script src="lib/js/Rx.js"></script>
+    <script src="lib/js/angular2.dev.js"></script>
+    <script src="lib/js/router.dev.js"></script>
+    <script src="lib/js/http.dev.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app/styles/style.css">
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          videogular2: {
+            defaultExtension: 'js'
+          }
+        },
+        map: {
+          'videogular2': 'lib/js/videogular2',
+          'System': 'lib/js'
+
+        }
+
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <flmmr class="disableScroll">
+      <div class="loader startscreen">Loading...</div>
+    </flmmr>
+  </body>
+
+</html>

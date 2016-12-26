@@ -1,0 +1,26 @@
+<vg-player (onPlayerReady)="onPlayerReady($event)" (click)="clickOnPlayer($event)">
+    <!-- <vg-overlay-play (click)="doSth($event)"></vg-overlay-play> -->
+
+    <vg-controls *ngIf="false" [autohide]="true" [autohideTime]="3">
+        <vg-play-pause></vg-play-pause>
+        <vg-playback-button></vg-playback-button>
+
+        <vg-time-display>{{ media?.time?.current | date:'mm:ss' }}</vg-time-display>
+
+        <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+
+        <vg-time-display>{{ media?.time?.left | date:'mm:ss' }}</vg-time-display>
+        <vg-time-display>{{ media?.time?.total | date:'mm:ss' }}</vg-time-display>
+
+        <vg-mute></vg-mute>
+
+        <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+
+    <video #media id="singleVideo"  preload="auto" [controls]="true" >
+        <source *ngFor="#video of sources" [src]="video.src" [type]="video.type">
+    </video>
+</vg-player>
