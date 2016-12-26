@@ -25,7 +25,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
             FlmmrAPIService = (function () {
                 function FlmmrAPIService(http) {
                     this.http = http;
-                    this._baseUrl = 'http://localhost:3000/api';
+                    this._baseUrl = 'https://flmmr-api.herokuapp.com/api';
                 }
                 FlmmrAPIService.prototype.getMedia = function (query) {
                     return this.http.get(this._baseUrl + '?q=' + query + '&min_duration=150')
