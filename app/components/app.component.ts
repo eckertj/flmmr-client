@@ -30,7 +30,6 @@ export class AppComponent {
     this.showVideoOverlay();
 
     $("body").addClass("disableScroll");
-
   }
 
   showVideoOverlay() {
