@@ -1,4 +1,4 @@
-# flmmr-api
+# flmmr-client
 
 flmmr-client ist eine Angular 2 App, die über mit der [```flmmr-api```](https://github.com/eckertj/flmmr-api) kommuniziert um die Mediatheken der deutschen öffentlich-rechtlichen Rundfunkanstalten zu durchsuchen und Beiträge anzusehen.
 
