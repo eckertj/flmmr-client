@@ -39,8 +39,11 @@
                     </div>
                     <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8" style="padding-left: 0px; height: 100%">
                       <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title">
+                        <div class="col-xs-12 col-sm-12 hidden-md hidden-lg title">
                             {{item.title | truncate : 15}}
+                        </div>
+                        <div class="hidden-xs hidden-sm col-md-12 col-lg-12 title">
+                            {{item.title | truncate : 30}}
                         </div>
                       </div>
                       <div class="row">
